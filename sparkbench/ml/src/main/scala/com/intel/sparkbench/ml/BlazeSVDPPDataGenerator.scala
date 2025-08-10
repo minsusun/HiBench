@@ -52,6 +52,7 @@ object BlazeSVDPPDataGenerator {
           case (value, featureId) => s"${id}::${featureId}::${value}"
         }
       }
+      .coalesce(1)
       .saveAsTextFile(outputPath)
 
     sc.stop()
